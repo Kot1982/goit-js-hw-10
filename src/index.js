@@ -13,6 +13,9 @@ countryInput.addEventListener('input', debounce(inputCountry, DEBOUNCE_DELAY));
 
 function inputCountry(event) {
   const nameCountry = event.target.value.trim();
+  if (nameCountry === "") {
+    return;
+  }
   fetchCountries(nameCountry)
     .then(response => {
       if (response.length > 10) {
